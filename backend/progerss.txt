@@ -1,0 +1,2 @@
+we have created backend and project structure.
+we have connected supabase
