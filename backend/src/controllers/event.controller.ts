@@ -52,14 +52,17 @@ export const getUserEventsController = asyncHandler(
   }
 );
 
+// Toggle Event Privacy Controller
 export const toggleEventPrivacyController = asyncHandlerAndValidation(
   EventIdDTO,
   "body",
   async (req: Request, res: Response, eventIdDto) => {
+    // Get user ID from request
     const userId = req.user?.id as string;
-
+    // Call service to toggle event privacy
     const event = await toggleEventPrivacyService(userId, eventIdDto.eventId);
 
+    // Return response to client
     return res.status(HTTPSTATUS.OK).json({
       message: `Event set to ${
         event.isPrivate ? "private" : "public"
@@ -68,15 +71,18 @@ export const toggleEventPrivacyController = asyncHandlerAndValidation(
   }
 );
 
+// Get Public Events by Username Controller
 export const getPublicEventsByUsernameController = asyncHandlerAndValidation(
   UserNameDTO,
   "params",
-
+  // Controller logic 
   async (req: Request, res: Response, userNameDto) => {
+    // Call service to get public events by username
     const { user, events } = await getPublicEventsByUsernameService(
       userNameDto.username
     );
 
+    // Return response to client
     return res.status(HTTPSTATUS.OK).json({
       message: "Public events fetched successfully",
       user,
