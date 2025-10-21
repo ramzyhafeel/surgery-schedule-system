@@ -42,6 +42,7 @@ export const getUserEventsController = asyncHandler(
     const userId = req.user?.id as string;
     const { events, username } = await getUserEventsService(userId);
 
+    // Return response to client 
     return res.status(HTTPSTATUS.OK).json({
       message: "User event fetched successfully",
       data: {
@@ -91,6 +92,7 @@ export const getPublicEventsByUsernameController = asyncHandlerAndValidation(
   }
 );
 
+// Get Public Event by Username and Slug Controller
 export const getPublicEventByUsernameAndSlugController =
   asyncHandlerAndValidation(
     UserNameAndSlugDTO,
@@ -100,6 +102,7 @@ export const getPublicEventByUsernameAndSlugController =
         userNameAndSlugDto
       );
 
+      // Return response to client
       return res.status(HTTPSTATUS.OK).json({
         message: "Event details fetched successfully",
         event,
@@ -107,13 +110,16 @@ export const getPublicEventByUsernameAndSlugController =
     }
   );
 
+  // Delete Event Controller
 export const deleteEventController = asyncHandlerAndValidation(
   EventIdDTO,
   "params",
   async (req: Request, res: Response, eventIdDto) => {
     const userId = req.user?.id as string;
 
+    // Call service to delete event
     await deleteEventService(userId, eventIdDto.eventId);
+    // Return response to client
     return res.status(HTTPSTATUS.OK).json({
       message: "Event deleted successfully",
     });
