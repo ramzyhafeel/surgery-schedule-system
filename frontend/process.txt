@@ -1,0 +1,1 @@
+pages -> auth has components folder and signin.tsx and signuip.tsx, inside components->sign-in-form.tsx and sign-up-form.tsx
