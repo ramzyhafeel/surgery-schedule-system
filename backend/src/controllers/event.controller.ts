@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { HTTPSTATUS } from "../config/http.config";
-import { asyncHandlerAndValidation } from "../middlewares/withValidation.middleware";
+import { asyncHandlerAndValidation } from "../middlewares/withValidation.middleware"; // Modified import
+
+// DTOs
 import {
   CreateEventDto,
   EventIdDTO,
@@ -17,14 +19,16 @@ import {
 } from "../services/event.service";
 import { asyncHandler } from "../middlewares/asyncHandler.middeware";
 
+// Create Event Controller
 export const createEventController = asyncHandlerAndValidation(
   CreateEventDto,
   "body",
   async (req: Request, res: Response, createEventDto) => {
     const userId = req.user?.id as string;
 
+    // Call service to create event
     const event = await createEventService(userId, createEventDto);
-
+    // Return response to client
     return res.status(HTTPSTATUS.CREATED).json({
       message: "Event created successfully",
       event,
@@ -32,6 +36,7 @@ export const createEventController = asyncHandlerAndValidation(
   }
 );
 
+// Get User Events Controller
 export const getUserEventsController = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = req.user?.id as string;
