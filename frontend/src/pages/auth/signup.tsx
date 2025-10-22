@@ -11,3 +11,4 @@ const Signup = () => {
 };
 
 export default Signup;
+// page about sign up main

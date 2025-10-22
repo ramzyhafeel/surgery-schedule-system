@@ -56,3 +56,4 @@ const Availability = () => {
 };
 
 export default Availability;
+// page about availability main
