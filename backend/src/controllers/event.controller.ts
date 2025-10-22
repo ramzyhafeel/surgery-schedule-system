@@ -125,3 +125,4 @@ export const deleteEventController = asyncHandlerAndValidation(
     });
   }
 );
+// Exporting the controllers

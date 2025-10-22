@@ -52,3 +52,4 @@ export const getAvailabilityForPublicEventController =
       });
     }
   );
+// Exporting the controllers  
