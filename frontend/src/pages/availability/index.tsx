@@ -7,7 +7,7 @@ import { ClockIcon } from "lucide-react";
 import { getUserAvailabilityQueryFn } from "@/lib/api";
 import { Loader } from "@/components/loader";
 import { ErrorAlert } from "@/components/ErrorAlert";
-
+//this section is created for user availability settings
 const Availability = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["user_availability"],
