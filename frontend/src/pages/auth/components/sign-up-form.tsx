@@ -179,3 +179,4 @@ export function SignUpForm({
     </div>
   );
 }
+// page about sign up form component

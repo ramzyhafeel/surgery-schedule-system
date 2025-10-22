@@ -144,3 +144,4 @@ const DayAvailability = ({
 };
 
 export default DayAvailability;
+// page about availability day component
