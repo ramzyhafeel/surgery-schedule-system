@@ -1,1 +1,4 @@
-pages -> auth has components folder and signin.tsx and signuip.tsx, inside components->sign-in-form.tsx and sign-up-form.tsx
+pages -> 1. auth - auth has components folder and signin.tsx and signuip.tsx,
+                inside components->sign-in-form.tsx and sign-up-form.tsx
+         2. availbility - indide availbilitythere is components folder and index.tsx
+         3. inside components there is day availability tsx and weekly hours tsx
